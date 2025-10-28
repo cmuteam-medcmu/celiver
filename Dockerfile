@@ -1,4 +1,4 @@
-FROM python:3.12-slim 
+FROM python:3.11-slim 
 
 ARG VERSION=1.0.0
 LABEL version=$VERSION

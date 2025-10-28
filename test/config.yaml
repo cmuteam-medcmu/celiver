@@ -1,0 +1,5 @@
+input: dataset/test_dataset.csv
+prefix: celiver
+outdir: test
+fromraw: True
+validate: dataset/true_label.csv

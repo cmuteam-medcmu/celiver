@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# Set the path to your docker-compose file
-compose_path="./docker-compose.yaml"
-output_dir="./test"
+# Set all paths
+compose_path="docker-compose.yaml" 
+output_dir="test" # This for testing, can be changed as needed
 
 # Run the celiver container with input and predicted file arguments
 #docker compose -f $compose_path \
     # -v $output_dir:/output \
-    # -v $(pwd):/app \
     # run --rm \
     # celiver \
     # -i dataset/true_label.csv \
@@ -18,7 +17,6 @@ output_dir="./test"
 docker compose -f $compose_path \
     run --rm \
     -v $output_dir:/output \
-    -v $(pwd):/app \
     celiver \
-    -c test_config.yaml \
+    -c test/config.yaml \
     -o /output
