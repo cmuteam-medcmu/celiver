@@ -10,7 +10,7 @@ output_dir="test" # This for testing, can be changed as needed
     # run --rm \
     # celiver \
     # -i dataset/true_label.csv \
-    # -p predicted \
+    # -p celiver \
     # -o /output
 
 # Run the celiver container with config file argument
