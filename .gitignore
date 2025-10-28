@@ -1,0 +1,5 @@
+# Celiver output files
+test/*
+# Temporary files
+*.tmp
+*.log
