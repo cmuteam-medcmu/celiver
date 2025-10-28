@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        VERSION: 1.0.0
+    container_name: celiver
+    volumes:
+      - .:/app # optional: sync local files
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
