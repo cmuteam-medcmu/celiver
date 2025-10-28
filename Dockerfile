@@ -21,8 +21,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY . . 
 
-# Default command (can be overridden)
-# CMD ["python", "--version"]
-
-# Example: your script entrypoint 
+# Entrypoint 
 ENTRYPOINT ["python", "src/celiver.py"]

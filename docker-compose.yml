@@ -1,14 +1,13 @@
 services:
-  app:
-    image: celiver:1.0.0
+  celiver:
+    image: celiver:latest
     build:
       context: .
+      dockerfile: Dockerfile
       args:
         VERSION: 1.0.0
-    container_name: celiver
     volumes:
-      - .:/app # optional: sync local files
+      - .:/app
     environment:
       - PYTHONUNBUFFERED=1
-    ports:
-      - "8000:8000"
+    command: python /app/src/celiver.py
