@@ -37,7 +37,7 @@ docker compose -f $compose_path \
     --outdir /output
 ```
 
-### Run through config file
+### Run through configuration file
 ```
 #!/bin/bash
 
