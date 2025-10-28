@@ -1,5 +1,6 @@
 services:
   app:
+    image: celiver:1.0.0
     build:
       context: .
       args:

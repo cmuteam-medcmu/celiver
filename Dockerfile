@@ -1,9 +1,11 @@
 FROM python:3.12-slim 
 
+ARG VERSION=1.0.0
+LABEL version=$VERSION
+
 WORKDIR /app 
 
 COPY requirements.txt .
-
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
