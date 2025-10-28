@@ -2,19 +2,19 @@
 This model is early liver cancer detection model, developed based on automated capillary electrophoresis data of cell-free DNA.
 
 # Installation
-## Docker-based
+### Docker-based
 ```
 git clone https://github.com/cmuteam-medcmu/celiver.git
 cd celiver
 docker compose run --rm celiver
 ```
 
-## Test with demo dataset
+### Test with demo dataset
 ```
 bash celiver-run.sh
 ```
 
-## Run through python argument
+### Run through python argument
 ```
 #!/bin/bash
 
@@ -32,7 +32,7 @@ docker compose -f $compose_path \
     --outdir /output
 ```
 
-## Run through config file
+### Run through config file
 ```
 #!/bin/bash
 
@@ -47,7 +47,7 @@ docker compose -f $compose_path \
     -o /output
 ```
 
-## Classes definition
+### Classes definition
 - 0 = Non-cancer
 - 1 = Liver cancer
 
