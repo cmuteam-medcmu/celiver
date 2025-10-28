@@ -1,6 +1,3 @@
-# CEliver model
-src/model/*
-
 # CEliver output files
 test/celiver_predictions.csv
 src/__pycache__/
