@@ -7,7 +7,9 @@ This model is early liver cancer detection model, developed based on automated c
 
 
 # Installation
-### Docker-based
+## Docker 
+Docker >= 28.5.1 with docker compose plugin
+[Docker installation](https://docs.docker.com/desktop/setup/install/linux/debian/)
 ```
 git clone https://github.com/cmuteam-medcmu/celiver.git
 cd celiver
@@ -30,7 +32,7 @@ docker compose -f $compose_path \
     -v $output_dir:/output \
     run --rm \
     celiver \
-    --input dataset/true_label.csv \
+    --input dataset/test_dataset.csv \
     --prefic celiver \
     --fromraw True \
     --validate dataset/true_label.csv \
@@ -48,8 +50,29 @@ docker compose -f $compose_path \
     -v $output_dir:/output \
     run --rm \
     celiver \
-    -c test/config.yaml \
-    -o /output
+    -c test/config.yaml
+```
+
+## Singularity
+[Singularity installation](https://docs.sylabs.io/guides/3.0/user-guide/installation.html)
+```
+singularity pull celiver-v1.0.0.sif docker://moonipur148/celiver:latest
+git clone https://github.com/cmuteam-medcmu/celiver.git
+cd celiver
+```
+
+### Run through singularity with configulation file
+```
+#!/bin/bash
+
+celiver_root="$PWD" # Change to your full path
+
+singularity run --cleanenv \
+    --pwd /work \
+    -B "test":/output \
+    -B $celiver_root:/work \
+    celiver.sif \
+    -c /work/test/config.yaml 
 ```
 
 # License

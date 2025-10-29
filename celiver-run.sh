@@ -9,7 +9,7 @@ output_dir="test" # This for testing, can be changed as needed
     # -v $output_dir:/output \
     # run --rm \
     # celiver \
-    # -i dataset/true_label.csv \
+    # -i dataset/test_dataset.csv \
     # -p celiver \
     # -r True \
     # -v dataset/true_label.csv \
@@ -20,5 +20,4 @@ docker compose -f $compose_path \
     run --rm \
     -v $output_dir:/output \
     celiver \
-    -c test/config.yaml \
-    -o /output
+    -c test/config.yaml 
