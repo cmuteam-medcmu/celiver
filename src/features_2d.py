@@ -5,20 +5,25 @@ import numpy as np
 import pandas as pd
 
 class Extract2DFeatures:
-    def __init__(self, data: pd.DataFrame):
-        self.data = data
+    def __init__(self, data: pd.DataFrame, raw: bool = False):
+        if raw:
+            self.data = data
+        else:
+            data['AFP'] = np.log(data['AFP'])
+            self.data = data
+
 
     @classmethod
     def from_raw(cls, data: pd.DataFrame):
         data.insert(3, 'Sex_F', np.where(data['Sex'] == 'F', 1, 0))
         data.insert(4, 'Sex_M', np.where(data['Sex_F'] == 1, 0, 1))
         data = data.drop('Sex', axis=1)
-        data['AFP'] = np.log1p(data['AFP'])
-        return cls(data)
+        data['AFP'] = np.log(data['AFP'])
+        return cls(data, True)
 
     @staticmethod
     def sliding_window_features(series: pd.Series) -> pd.DataFrame:
-        a = [j for j in range(series.shape[0])]
+        a = [float(j) for j in series]
         length = 0
         label, data = [], []
         while length < len(a) - 1:
@@ -32,7 +37,7 @@ class Extract2DFeatures:
     
     @staticmethod
     def probability_features(series: pd.Series) -> pd.DataFrame:
-        a = [j for j in range(series.shape[0])]
+        a = [float(j) for j in series]
         length = 10
         label, data = [], []
 
