@@ -88,7 +88,7 @@ class CEliver:
         if self.from_raw:
             feature_extractor = Extract2DFeatures.from_raw(data)
         else:
-            feature_extractor = Extract2DFeatures(data)
+            feature_extractor = Extract2DFeatures(data, False)
         print(f"\u255A\u2550 Dataset loaded with {data.shape[0]} samples")
 
         print("\nExtracting features...")
