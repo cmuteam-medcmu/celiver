@@ -1,4 +1,5 @@
-# CEliver model [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18297357.svg)](https://doi.org/10.5281/zenodo.18297357)
+# CEliver model 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18297357.svg)](https://doi.org/10.5281/zenodo.18297357)
 This model is early liver cancer detection model, developed based on automated capillary electrophoresis data of cell-free DNA.
 
 ### Classes definition
