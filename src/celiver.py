@@ -3,7 +3,7 @@ import sys
 import yaml
 import argparse
 from pathlib import Path
-
+import numpy as np
 
 class CEliver:
     def __init__(self, input_path: str, output_dir: str, output_prefix: str, from_raw: bool = True, validate_path: str = None):
@@ -102,13 +102,15 @@ class CEliver:
         features_scaled = scaler.transform(features_df.iloc[:, 1:])
         features_kbest = kbest.transform(features_scaled)
 
-        predictions = model.predict(features_kbest)
-        
         if self.validate_path:
+            predictions = model.predict(features_kbest)
             true_labels = pd.read_csv(self.validate_path)
             from sklearn.metrics import classification_report
             print("\nValidation Report:")
             print(classification_report(true_labels, predictions))
+        else:
+            predictions = model.predict_proba(features_kbest)
+            predictions = np.round(predictions[:, 1], 2)
         
         print("\nSaving predictions...")
         output_path = os.path.join(self.output_dir, f"{self.output_prefix}_predictions.csv")
